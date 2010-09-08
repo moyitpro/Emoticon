@@ -219,9 +219,11 @@
 {
 	// Get Selected Emoticon
 	NSArray * selectedemote = [emotes selectedObjects];
-	NSLog(@"%@",[selectedemote valueForKey:@"emote"]);
-	// Send to Clipboard
-	[self copyToClipboard:[NSString stringWithFormat:@"%@",[selectedemote valueForKey:@"emote"]]];
+	NSEntityDescription *entity = [selectedemote objectAtIndex:0];
+	NSString * tmpemote = [NSString stringWithFormat:@"%@",[entity valueForKey:@"emote"]];
+	NSLog(@"%@", [entity valueForKey:@"emote"]);
+	//Send to Clipboard
+	[self copyToClipboard:tmpemote];
 }
 
 @end
